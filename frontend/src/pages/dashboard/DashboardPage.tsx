@@ -4,19 +4,20 @@ import type { InvoiceSummaryStatus } from './dashboard.types';
 
 import { invoiceSummary } from './dashboard.mock';
 import styles from './Dashboard.module.scss';
+import { RecentInvoices } from '../../features/invoices/components/RecentInvoices/RecentInvoices';
+
+const statusIcons: Record<InvoiceSummaryStatus, LucideIcon> = {
+  pending: Clock,
+  needsCorrection: CircleAlert,
+  accepted: CircleCheck,
+};
+
+const currencyFormatter = new Intl.NumberFormat('pl-PL', {
+  style: 'currency',
+  currency: 'PLN',
+});
 
 export function DashboardPage() {
-  const statusIcons: Record<InvoiceSummaryStatus, LucideIcon> = {
-    pending: Clock,
-    needsCorrection: CircleAlert,
-    accepted: CircleCheck,
-  };
-
-  const currencyFormatter = new Intl.NumberFormat('pl-PL', {
-    style: 'currency',
-    currency: 'PLN',
-  });
-
   return (
     <main className={styles.page}>
       <header className={styles.header}>
@@ -49,6 +50,7 @@ export function DashboardPage() {
           })}
         </div>
       </section>
+      <RecentInvoices />
     </main>
   );
 }
