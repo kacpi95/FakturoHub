@@ -1,0 +1,91 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  margin: 0.25rem 0 0;
+}
+
+.issueButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0.625rem 1rem;
+  border: 0;
+  border-radius: 0.5rem;
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+  font-weight: 600;
+}
+
+.issueButton:disabled {
+  opacity: 0.7;
+}
+
+.summary {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.card {
+  padding: 1rem;
+  border: 1px solid var(--card-border);
+  border-radius: 0.625rem;
+  background-color: var(--card-background);
+
+  &[data-status='pending'] {
+    --card-border: #f3d59a;
+    --card-background: #fff8eb;
+    --card-accent: #854600;
+  }
+
+  &[data-status='needsCorrection'] {
+    --card-border: #f5c2c7;
+    --card-background: #fff1f2;
+    --card-accent: #a11232;
+  }
+
+  &[data-status='accepted'] {
+    --card-border: #bce6c9;
+    --card-background: #effbf3;
+    --card-accent: #17643a;
+  }
+}
+
+.cardName {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--card-accent);
+  font-weight: 600;
+}
+
+.cardCount {
+  margin: 0.25rem 0 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.cardTotal {
+  margin: 0.25rem 0 0;
+  font-size: 0.875rem;
+}
+
+@media (min-width: 48rem) {
+  .header {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .summary {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
