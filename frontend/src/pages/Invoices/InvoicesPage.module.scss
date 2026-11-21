@@ -1,0 +1,19 @@
+.page {
+  max-width: 75rem;
+  margin-inline: auto;
+  padding: 1rem;
+}
+
+.title {
+  margin: 0;
+}
+
+.subtitle {
+  margin: 0.25rem 0 0;
+}
+
+@media (min-width: 48rem) {
+  .page {
+    padding: 2rem;
+  }
+}
