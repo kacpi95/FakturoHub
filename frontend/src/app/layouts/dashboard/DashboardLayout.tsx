@@ -1,14 +1,11 @@
-import { useState, type ReactNode } from 'react';
+import { useState } from 'react';
 import { FileText, Menu, X } from 'lucide-react';
+import { NavLink, Outlet } from 'react-router';
 
 import styles from './DashboardLayout.module.scss';
 import { dashboardNavigation } from './dashboard-navigation';
 
-type DashboardLayoutProps = {
-  children: ReactNode;
-};
-
-export function DashboardLayout({ children }: DashboardLayoutProps) {
+export function DashboardLayout() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -41,18 +38,18 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
           data-open={isMenuOpen}
         >
           <ul className={styles.navigationList}>
-            {dashboardNavigation.map(({ label, icon: Icon, available }) => (
+            {dashboardNavigation.map(({ label, icon: Icon, to }) => (
               <li key={label}>
-                {available ? (
-                  <a
+                {to ? (
+                  <NavLink
                     className={styles.navigationLink}
-                    href='/'
-                    aria-current='page'
+                    to={to}
+                    end
                     onClick={() => setIsMenuOpen(false)}
                   >
                     <Icon size={20} aria-hidden='true' />
                     {label}
-                  </a>
+                  </NavLink>
                 ) : (
                   <span className={styles.navigationLink} aria-disabled='true'>
                     <Icon size={20} aria-hidden='true' />
@@ -65,7 +62,9 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
         </nav>
       </aside>
 
-      <div className={styles.content}>{children}</div>
+      <div className={styles.content}>
+        <Outlet />
+      </div>
     </div>
   );
 }
