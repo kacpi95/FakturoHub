@@ -1,5 +1,6 @@
 import { CircleAlert, CircleCheck, Clock } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
+import { Link } from 'react-router';
 
 import { mockInvoices } from '../../invoices.mock';
 import type { InvoiceStatus } from '../../types/invoice.types';
@@ -36,9 +37,15 @@ const recentInvoices = [...mockInvoices]
 export function RecentInvoices() {
   return (
     <section className={styles.section} aria-labelledby='recent-invoices-title'>
-      <h2 className={styles.title} id='recent-invoices-title'>
-        Ostatnie faktury
-      </h2>
+      <header className={styles.header}>
+        <h2 className={styles.title} id='recent-invoices-title'>
+          Ostatnie faktury
+        </h2>
+
+        <Link className={styles.viewAll} to='/app/invoices'>
+          Zobacz wszystkie →
+        </Link>
+      </header>
 
       <div
         className={styles.tableContainer}

@@ -7,9 +7,27 @@
   background: var(--color-surface);
 }
 
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  margin-bottom: 0.75rem;
+}
+
 .title {
-  margin: 0 0 0.75rem;
+  margin: 0;
   font-size: 1.125rem;
+}
+
+.viewAll {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  color: var(--color-primary);
+  font-size: 0.875rem;
+  text-underline-offset: 0.2em;
 }
 
 .tableContainer {
