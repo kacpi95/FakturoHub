@@ -5,12 +5,7 @@ import { Link } from 'react-router';
 import { mockInvoices } from '../../invoices.mock';
 import type { InvoiceStatus } from '../../types/invoice.types';
 import styles from './RecentInvoices.module.scss';
-
-const statusLabels: Record<InvoiceStatus, string> = {
-  pending: 'Oczekująca',
-  needsCorrection: 'Do poprawy',
-  accepted: 'Przyjęta',
-};
+import { invoiceStatusLabels } from '../../invoice.constants';
 
 const currencyFormatter = new Intl.NumberFormat('pl-PL', {
   style: 'currency',
@@ -79,7 +74,7 @@ export function RecentInvoices() {
                   <td>
                     <span className={styles.badge} data-status={invoice.status}>
                       <StatusIcon size={18} aria-hidden='true' />
-                      {statusLabels[invoice.status]}
+                      {invoiceStatusLabels[invoice.status]}
                     </span>
                   </td>
                   <td>
