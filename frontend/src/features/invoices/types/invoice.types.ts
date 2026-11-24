@@ -1,4 +1,8 @@
-export type InvoiceStatus = 'pending' | 'needsCorrection' | 'accepted';
+export type InvoiceStatus =
+  | 'pending'
+  | 'needsCorrection'
+  | 'accepted'
+  | 'rejected';
 
 export type InvoiceListItem = {
   id: string;

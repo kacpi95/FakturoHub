@@ -4,4 +4,5 @@ export const invoiceStatusLabels: Record<InvoiceStatus, string> = {
   pending: 'Oczekująca',
   needsCorrection: 'Do poprawy',
   accepted: 'Przyjęta',
+  rejected: 'Odrzucona',
 };
