@@ -38,7 +38,7 @@ export const mockInvoices: InvoiceListItem[] = [
     number: 'FV/2025/0030',
     customerName: 'Nova Marketing Sp. z o.o.',
     total: 89_900,
-    status: 'rejected',
+    status: 'needsCorrection',
     issuedOn: '2025-01-18',
   },
   {
@@ -70,7 +70,7 @@ export const mockInvoices: InvoiceListItem[] = [
     number: 'FV/2025/0026',
     customerName: 'Blue Ocean Trade Sp. z o.o.',
     total: 63_400,
-    status: 'rejected',
+    status: 'needsCorrection',
     issuedOn: '2025-01-14',
   },
   {
