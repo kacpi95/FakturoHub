@@ -6,18 +6,7 @@ import { mockInvoices } from '../../invoices.mock';
 import type { InvoiceStatus } from '../../types/invoice.types';
 import styles from './RecentInvoices.module.scss';
 import { invoiceStatusLabels } from '../../invoice.constants';
-
-const currencyFormatter = new Intl.NumberFormat('pl-PL', {
-  style: 'currency',
-  currency: 'PLN',
-});
-
-const dateFormatter = new Intl.DateTimeFormat('pl-PL', {
-  day: '2-digit',
-  month: '2-digit',
-  year: 'numeric',
-  timeZone: 'UTC',
-});
+import { currencyFormatter, dateFormatter } from '../../utils/formatters';
 
 const statusIcons: Record<InvoiceStatus, LucideIcon> = {
   pending: Clock,
